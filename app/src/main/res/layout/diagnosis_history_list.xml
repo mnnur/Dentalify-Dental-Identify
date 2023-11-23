@@ -10,49 +10,64 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <ImageView
-            android:id="@+id/img_item_photo"
-            android:layout_width="100dp"
+        <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+            android:id="@+id/circularRevealCardView"
+            android:layout_width="140dp"
             android:layout_height="100dp"
             android:contentDescription="diagnosis picture"
-            android:scaleType="centerCrop"
             card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            card_view:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:id="@+id/rv_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/backround_top2" />
+
+        </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
 
         <TextView
-            android:id="@+id/tv_item_name"
+            android:id="@+id/rvTitleDiagnosis"
+            style="@style/textHeaderS"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_toEndOf="@id/img_item_photo"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@id/img_item_photo"
-            card_view:layout_constraintTop_toTopOf="@+id/img_item_photo"
-            tools:text="Diagnosis 21/11/2023" />
+            android:layout_marginBottom="8dp"
+            card_view:layout_constraintStart_toEndOf="@+id/circularRevealCardView"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:text="Diagnosis" />
 
         <TextView
             android:id="@+id/tv_item_description"
+            style="@style/textBodyM"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:text="Deskripsi"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/img_item_photo"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_item_name" />
+            card_view:layout_constraintStart_toEndOf="@+id/circularRevealCardView"
+            card_view:layout_constraintTop_toBottomOf="@+id/rvTitleDiagnosis" />
+
+        <TextView
+            android:id="@+id/rvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/textBodyS"
+            android:layout_marginStart="8dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toEndOf="@+id/circularRevealCardView"
+            android:text="15 Desember 2023"/>
 
         <TextView
             android:id="@+id/tv_item_detail"
