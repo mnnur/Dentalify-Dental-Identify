@@ -65,4 +65,10 @@ I agree to the Terms of Service and Privacy Policy</string>
     <string name="bersama">
 Bersama-sama Kita Menjaga\nKesehatan Mulut
 </string>
+    <string name="unggah">Unggah</string>
+    <string name="cancel">Batal</string>
+    <string name="camera">Kamera</string>
+    <string name="galery">Galery</string>
+    <string name="upload_from">Unggah dari :</string>
+    <string name="upload_title">Unggah gambar keadaan mulut anda</string>
 </resources>
