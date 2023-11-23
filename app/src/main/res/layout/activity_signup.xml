@@ -11,113 +11,162 @@
         android:id="@+id/background_top"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="365dp"
         android:background="@drawable/background_top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_anchor="@+id/background_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/signup_layout"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvLogin"
+        style="@style/textHeaderL"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/secondary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:lineSpacingExtra="-2sp"
+        android:layout_marginStart="16dp"
+        android:text="@string/sign_up"
+        android:textColor="@color/cardview_light_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <TextView
+        android:id="@+id/tvdescription"
+        style="@style/textBodyL"
+        android:textColor="@color/cardview_light_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/senyum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
 
-        <Button
-            android:id="@+id/button_login"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/primary"
-            android:text="Login"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edittext_signup_password" />
-
-        <Button
-            android:id="@+id/button_goto_forgot_password"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/primary"
-            android:text="Lupa Password?"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_login" />
-
-        <EditText
-            android:id="@+id/edittext_signup_email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edittext_signup_name" />
-
-        <EditText
-            android:id="@+id/edittext_signup_password"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edittext_signup_email" />
-
-        <EditText
-            android:id="@+id/edittext_signup_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nama"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/logo_layout"
+    <LinearLayout
+        android:id="@+id/frameGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/signup_layout"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/background_group"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_anchor="@+id/background_top"
+        app:layout_anchorGravity="bottom|center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/tvdescription">
+
+
+        <EditText
+            android:id="@+id/edtUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in"
+            android:drawableStart="@drawable/ic_account"/>
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in"
+            android:drawableStart="@drawable/ic_email"/>
+
+        <EditText
+            android:id="@+id/edtPw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/log_in"
+            android:drawableStart="@drawable/ic_pw"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="@style/textBodyS"
+            android:text="@string/i_agree_to_"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSignIn"
+            style="@style/textBodyM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/sign_up" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvMasukDengan"
+        style="@style/textBodyM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/daftar_dengan"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/frameGroup"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <LinearLayout
+        android:id="@+id/groupLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/background_top"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMasukDengan">
 
         <ImageView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@tools:sample/avatars"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/btnFbLogin"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/btnFb"
+            android:src="@drawable/ic_fb" />
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign up"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
+        <ImageView
+            android:id="@+id/btnGoogleLogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="0.5dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/btnGoogle"
+            android:src="@drawable/ic_google" />
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Masuk untuk melihat kesehatan mulut anda"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/logInGuest"
+        style="@style/textBodyM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/log_guest"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupLogin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

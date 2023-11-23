@@ -56,4 +56,9 @@ Selamat Datang di Dental Identify
     <string name="btnGoogle">masuk dengan google</string>
     <string name="btnFb">masuk dengan Facebook</string>
     <string name="logo">logo mulut</string>
+
+    <string name="i_agree_to_">
+I agree to the Terms of Service and Privacy Policy</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="daftar_dengan">------ Atau daftar dengan -----</string>
 </resources>
