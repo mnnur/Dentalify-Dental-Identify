@@ -8,6 +8,10 @@
 
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="welcome">
+Selamat Datang di Dental Identify
+</string>
+    <string name="senyum">Senyum Anda Menunjukkan Kesehatan Anda</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -45,4 +49,11 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="sign_in">Sign In</string>
+    <string name="log_in">Log In</string>
+    <string name="masuk_dengan">----- Masuk Dengan -----</string>
+    <string name="log_guest">----- Masuk Sebagai Tamu -----</string>
+    <string name="btnGoogle">masuk dengan google</string>
+    <string name="btnFb">masuk dengan Facebook</string>
+    <string name="logo">logo mulut</string>
 </resources>

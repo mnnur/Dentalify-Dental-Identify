@@ -2,8 +2,56 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.DentifyDentalIdentify" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primary</item>
     </style>
 
     <style name="Theme.DentifyDentalIdentify" parent="Base.Theme.DentifyDentalIdentify" />
+    
+    <style name="textHeaderL">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+    </style>
+
+    <style name="textHeaderM">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+
+    </style>
+
+    <style name="textHeaderS">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/kalam_bold</item>
+
+    </style>
+
+    <style name="textBodyL">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+
+    </style>
+
+    <style name="textBodyM">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+
+    </style>
+
+    <style name="textBodyS">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/kalam_regular</item>
+
+    </style>
+
 </resources>
