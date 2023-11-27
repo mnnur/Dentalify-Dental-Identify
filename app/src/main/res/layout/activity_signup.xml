@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/primary"
-    tools:context=".ActivitySignup">
+    tools:context=".SignupActivity">
 
     <View
         android:id="@+id/background_top"
@@ -103,7 +103,7 @@
             android:text="@string/i_agree_to_"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSignIn"
+            android:id="@+id/btnSignUp"
             style="@style/textBodyM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -16,7 +16,7 @@
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ActivitySignup"
+            android:name=".SignupActivity"
             android:exported="false"
             android:label="@string/title_activity_signup"
             android:theme="@style/Theme.DentifyDentalIdentify" />

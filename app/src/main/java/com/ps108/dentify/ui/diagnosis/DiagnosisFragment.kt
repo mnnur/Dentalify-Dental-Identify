@@ -4,10 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import com.ps108.dentify.databinding.FragmentDiagnosisBinding
 
 class DiagnosisFragment : Fragment() {
+    private lateinit var binding : FragmentDiagnosisBinding
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentDiagnosisBinding.inflate(inflater,container, false)
+
+        return binding.root
+    }
 }
