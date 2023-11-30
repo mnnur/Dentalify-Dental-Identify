@@ -8,7 +8,7 @@
     tools:context=".ui.settings.SettingsFragment">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView1"
         style="@style/textHeaderM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/textView1">
 
         <ImageView
             android:layout_width="100dp"
@@ -81,8 +81,9 @@
         android:layout_marginTop="16dp"
         android:paddingBottom="8dp"
         android:text="Option"
-        app:layout_constraintTop_toBottomOf="@+id/frame_8"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_8" />
 
     <Button
         android:id="@+id/btnTheme"
@@ -90,25 +91,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="setting"
+        android:layout_marginBottom="16dp"
         android:textAlignment="textStart"
         app:icon="@drawable/ic_settings_24"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
         android:id="@+id/button"
         style="@style/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="56dp"
         android:text="Tema"
         android:textAlignment="textStart"
         app:icon="@drawable/ic_settings_24"
-        app:layout_constraintTop_toBottomOf="@+id/btnTheme"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/akun"
+        android:id="@+id/tvAkun"
         style="@style/textHeaderM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -119,16 +124,18 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/btnLog"
         style="@style/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="348dp"
         android:text="LogOut"
         android:textAlignment="textStart"
         app:icon="@drawable/ic_logout_24"
-        app:layout_constraintTop_toBottomOf="@+id/akun"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvAkun"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvAkun" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
