@@ -72,4 +72,7 @@ Bersama-sama Kita Menjaga\nKesehatan Mulut
     <string name="upload_from">Unggah dari :</string>
     <string name="upload_title">Unggah gambar keadaan mulut anda</string>
     <string name="time">17:00 15 Fevruari 2023</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Nama</string>
 </resources>

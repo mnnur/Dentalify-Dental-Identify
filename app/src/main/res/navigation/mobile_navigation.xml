@@ -9,7 +9,14 @@
         android:id="@+id/navigation_home"
         android:name="com.ps108.dentify.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_diagnosis"
+            app:destination="@id/navigation_diagnosis" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_diagnosis"
@@ -20,6 +27,6 @@
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.ps108.dentify.ui.settings.SettingsFragment"
-        android:label="@string/title_Settings"
+        android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>
