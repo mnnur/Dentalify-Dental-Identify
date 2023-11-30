@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
         android:id="@+id/background_top"
         android:layout_width="0dp"
@@ -72,21 +82,64 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvdescription">
 
+        <TextView
+            android:id="@+id/emailTextView"
+            style="@style/textBodyS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:text="@string/email"
+            android:textColor="@color/black"
+            tools:alpha="100" />
 
-        <EditText
-            android:id="@+id/edtEmail"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailEdtLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_email"
-            android:text="@string/sign_in" />
+            android:alpha="0"
+            app:startIconDrawable="@drawable/ic_email"
+            tools:alpha="100">
 
-        <EditText
-            android:id="@+id/edtPw"
+            <com.ps108.dentify.ui.customView.EmailCustomView
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/passwordTextView"
+            style="@style/textBodyS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:text="@string/password"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/messageTextView"
+            tools:alpha="100" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordEditTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawableStart="@drawable/ic_pw"
-            android:text="@string/log_in" />
+            android:alpha="0"
+            tools:alpha="100"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_pw">
+
+            <com.ps108.dentify.ui.customView.PasswordCustomView
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
             style="@style/textBodyM"
@@ -104,7 +157,7 @@
             android:text="@string/log_in" />
 
         <TextView
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnLupaPw"
             style="@style/textBodyM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
