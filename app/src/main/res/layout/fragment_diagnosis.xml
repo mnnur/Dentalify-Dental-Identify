@@ -1,123 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    tools:context=".ui.diagnosis.DiagnosisFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/textBodyM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.diagnosis.DiagnosisFragment">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/upload_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+        android:id="@+id/circularRevealCardView"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-        <TextView
-            android:id="@+id/textView3"
-            style="@style/textBodyM"
+        <ImageView
+            android:id="@+id/iv_preview"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="diagnosis picture"
+            android:src="@drawable/ic_unggah"
+            tools:src="@drawable/ic_unggah" />
+
+    </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/textBodyM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/upload_from"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/lnbawah"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_gallery"
+            style="@style/button"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/upload_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginEnd="8dp"
+            android:text="@string/galery"
+            app:icon="@drawable/baseline_add_photo_alternate_24" />
 
-        <com.google.android.material.circularreveal.cardview.CircularRevealCardView
-            android:id="@+id/circularRevealCardView"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/btn_camera"
+            style="@style/button"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3">
+            android:text="@string/camera"
+            app:icon="@drawable/baseline_photo_camera_24" />
 
-            <ImageView
-                android:id="@+id/tv_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="diagnosis picture"
-                tools:src="@drawable/ic_unggah"
-                android:src="@drawable/ic_unggah" />
+    </LinearLayout>
 
-        </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
+    <LinearLayout
+        android:id="@+id/lnbawah"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-
-        <TextView
-            android:id="@+id/textView4"
-            style="@style/textBodyM"
+        <Button
+            android:id="@+id/btnbatal"
+            style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/upload_from"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_marginEnd="8dp"
+            android:text="@string/cancel"
+            app:icon="@drawable/baseline_cancel_24" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="center"
-            app:layout_constraintBottom_toTopOf="@+id/lnbawah"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <Button
-                style="@style/button"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="@string/galery"
-                app:icon="@drawable/baseline_add_photo_alternate_24" />
-
-            <Button
-                style="@style/button"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="@string/camera"
-                app:icon="@drawable/baseline_photo_camera_24" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lnbawah"
+        <Button
+            android:id="@+id/btnUpload"
+            style="@style/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <Button
-                android:id="@+id/btnbatal"
-                style="@style/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="@string/cancel"
-                app:icon="@drawable/baseline_cancel_24" />
-
-            <Button
-                android:id="@+id/btnUpload"
-                style="@style/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/unggah"
-                app:icon="@drawable/ic_unggah" />
+            android:text="@string/unggah"
+            app:icon="@drawable/ic_unggah" />
 
 
-        </LinearLayout>
+    </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
