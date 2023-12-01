@@ -128,14 +128,13 @@
         style="@style/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="348dp"
         android:text="LogOut"
         android:textAlignment="textStart"
         app:icon="@drawable/ic_logout_24"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/tvAkun"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvAkun" />
+        app:layout_constraintStart_toStartOf="@+id/tvAkun"
+        app:layout_constraintTop_toBottomOf="@+id/tvAkun" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

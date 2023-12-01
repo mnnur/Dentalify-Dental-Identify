@@ -6,7 +6,6 @@
     android:height="311dp"
     android:viewportWidth="330"
     android:viewportHeight="311"
-
     >
         <group>
             <clip-path
@@ -14,7 +13,7 @@
                 />
             <path
                 android:pathData="M0 0V311H330V0"
-                android:fillColor="#F5F5F5"
+                android:fillColor="@color/secondary"
 
                 />
         </group>

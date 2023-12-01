@@ -59,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:layout_marginStart="16dp"
+        app:layout_anchor="@id/imageView3"
         android:text="@string/bersama"
         android:textColor="@color/cardview_light_background"
         app:layout_constraintEnd_toEndOf="parent"
