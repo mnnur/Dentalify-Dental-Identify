@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "827491548058",
+    "project_id": "dentify-dental-identify",
+    "storage_bucket": "dentify-dental-identify.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827491548058:android:af57269070deea9b495823",
+        "android_client_info": {
+          "package_name": "com.ps108.dentify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuRKhLk6Mi-W6YCwu5Zh1Nw9UBPhJx9iA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
