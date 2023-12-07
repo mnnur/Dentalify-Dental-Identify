@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.ps108.dentify.WelcomeActivity
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.ps108.dentify.LoginActivity
+import com.ps108.dentify.MainActivity
 import com.ps108.dentify.databinding.FragmentSettingsBinding
+
 
 class SettingsFragment : Fragment() {
     private lateinit var binding: FragmentSettingsBinding
@@ -18,8 +22,14 @@ class SettingsFragment : Fragment() {
     ): View {
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
-        binding.btnLog.setOnClickListener {
-            startActivity(Intent(requireActivity(), WelcomeActivity::class.java))
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            Glide.with(requireActivity()).load(user.photoUrl).into(binding.ivUserImage)
+        }
+
+        binding.btnLogout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(requireActivity(), LoginActivity::class.java))
         }
 
         return binding.root
