@@ -57,14 +57,11 @@ Selamat Datang di Dental Identify
     <string name="btnFb">masuk dengan Facebook</string>
     <string name="logo">logo mulut</string>
 
-    <string name="i_agree_to_">
-I agree to the Terms of Service and Privacy Policy</string>
+    <string name="i_agree_to_">I agree to the Terms of Service and Privacy Policy</string>
     <string name="sign_up">Sign Up</string>
     <string name="daftar_dengan">------ Atau daftar dengan -----</string>
 
-    <string name="bersama">
-Bersama-sama Kita Menjaga\nKesehatan Mulut
-</string>
+    <string name="bersama">Bersama-sama Kita Menjaga\nKesehatan Mulut</string>
     <string name="unggah">Unggah</string>
     <string name="cancel">Batal</string>
     <string name="camera">Kamera</string>
@@ -77,4 +74,16 @@ Bersama-sama Kita Menjaga\nKesehatan Mulut
     <string name="name">Nama</string>
     <string name="title_search">Cari riwayat</string>
     <string name="description_home">Riwayat pengecekan mulut anda</string>
+
+    <!-- Night Mode Preferences -->
+    <string name="pref_dark_title">Dark mode</string>
+    <string name="pref_key_dark" translatable="false">key_dark_mode</string>
+    <string name="pref_dark_follow_system" translatable="false">follow_system</string>
+    <string name="pref_dark_on" translatable="false">on</string>
+    <string name="pref_dark_off" translatable="false">off</string>
+    <string name="dark_mode_auto">Automatic</string>
+    <string name="dark_mode_on">Dark mode</string>
+    <string name="dark_mode_off">Light mode</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
