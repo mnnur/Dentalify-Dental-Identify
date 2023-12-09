@@ -4,203 +4,221 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginActivity">
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/progressIndicator"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".LoginActivity">
 
-    <View
-        android:id="@+id/background_top"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/background_top"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/logo"
-        app:layout_anchor="@+id/background_top"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvLogin"
-        style="@style/textHeaderL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:lineSpacingExtra="-2sp"
-        android:text="Log In"
-        android:textColor="@color/cardview_light_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
-
-    <TextView
-        android:id="@+id/tvdescription"
-        style="@style/textBodyL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/senyum"
-        android:textColor="@color/cardview_light_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
-
-    <LinearLayout
-        android:id="@+id/frameGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/background_group"
-        android:elevation="4dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_anchor="@+id/background_top"
-        app:layout_anchorGravity="bottom|center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvdescription">
-
-        <TextView
-            android:id="@+id/emailTextView"
-            style="@style/textBodyS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0"
-            android:text="@string/email"
-            android:textColor="@color/black"
-            tools:alpha="100" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailEdtLayout"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressIndicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:alpha="0"
-            app:startIconDrawable="@drawable/ic_email"
-            tools:alpha="100">
-
-            <com.ps108.dentify.ui.customView.EmailCustomView
-                android:id="@+id/edtEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/passwordTextView"
-            style="@style/textBodyS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0"
-            android:text="@string/password"
-            android:textColor="@color/black"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/messageTextView"
-            tools:alpha="100" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordEditTextLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alpha="0"
-            tools:alpha="100"
-            app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/ic_pw">
+        <View
+            android:id="@+id/background_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_top"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-            <com.ps108.dentify.ui.customView.PasswordCustomView
-                android:id="@+id/passwordEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <CheckBox
-            style="@style/textBodyM"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="ingat saya" />
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogIn"
-            style="@style/textBodyM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/log_in" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/logo2"
+            app:layout_anchor="@+id/background_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/btnLupaPw"
+            android:id="@+id/tvLogin"
+            style="@style/textHeaderL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:lineSpacingExtra="-2sp"
+            android:text="Log In"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+        <TextView
+            android:id="@+id/tvdescription"
+            style="@style/textBodyL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/senyum"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
+
+        <LinearLayout
+            android:id="@+id/frameGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/background_group"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_anchor="@+id/background_top"
+            app:layout_anchorGravity="bottom|center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvdescription">
+
+            <TextView
+                android:id="@+id/emailTextView"
+                style="@style/textBodyS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:text="@string/email"
+                android:textColor="@color/black"
+                tools:alpha="100" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailEdtLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                app:startIconDrawable="@drawable/ic_email"
+                tools:alpha="100">
+
+                <com.ps108.dentify.ui.customView.EmailCustomView
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/passwordTextView"
+                style="@style/textBodyS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:text="@string/password"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/messageTextView"
+                tools:alpha="100" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordEditTextLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/ic_pw"
+                tools:alpha="100">
+
+                <com.ps108.dentify.ui.customView.PasswordCustomView
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                style="@style/textBodyM"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="ingat saya" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogIn"
+                style="@style/textBodyM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/log_in" />
+
+            <TextView
+                android:id="@+id/btnLupaPw"
+                style="@style/textBodyM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Lupa Password ?"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvMasukDengan"
             style="@style/textBodyM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="------ Atau masuk dengan -----"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameGroup" />
+
+        <LinearLayout
+            android:id="@+id/btn_google_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Lupa Password ?"
-            android:textAlignment="center" />
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMasukDengan">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/btnGoogle"
+                android:src="@drawable/ic_google" />
 
-    <TextView
-        android:id="@+id/tvMasukDengan"
-        style="@style/textBodyM"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="------ Atau masuk dengan -----"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/frameGroup"
-        tools:layout_editor_absoluteX="1dp" />
-
-    <LinearLayout
-        android:id="@+id/groupLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/background_top"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMasukDengan">
-
+            <TextView
+                style="@style/textBodyL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/sign_in" />
+        </LinearLayout>
+        <!--
         <com.google.android.gms.common.SignInButton
             android:id="@+id/btn_google_login"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMasukDengan" />
+-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

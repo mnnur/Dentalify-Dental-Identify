@@ -56,6 +56,7 @@ dependencies {
 
     implementation("com.google.firebase:firebase-auth:22.3.0")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("com.google.android.gms:play-services-base:18.2.0")
 
 //    implementation("androidx.navigation:navigation-fragment:2.7.5")
     testImplementation("junit:junit:4.13.2")

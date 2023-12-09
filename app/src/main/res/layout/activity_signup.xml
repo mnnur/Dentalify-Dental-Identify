@@ -228,22 +228,31 @@
             tools:layout_editor_absoluteX="1dp" />
 
         <LinearLayout
-            android:id="@+id/groupLogin"
-            android:layout_width="match_parent"
+            android:id="@+id/btn_google_signup"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toStartOf="@+id/background_top"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMasukDengan">
 
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/btn_google_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/btnGoogle"
+                android:src="@drawable/ic_google" />
 
+            <TextView
+                style="@style/textBodyL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/sign_in" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
