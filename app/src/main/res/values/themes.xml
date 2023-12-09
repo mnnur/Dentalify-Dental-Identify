@@ -19,20 +19,20 @@
 
     <style name="button">
 
-        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
     <style name="textHeaderL">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">34sp</item>
-        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
 
     <style name="textHeaderM">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
 
     </style>
 
@@ -40,7 +40,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/kalam_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
 
     </style>
 
@@ -48,7 +48,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">@font/kalam_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
 
     </style>
 
@@ -56,7 +56,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/kalam_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
 
     </style>
 
@@ -64,7 +64,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">@font/kalam_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
 
     </style>
 
