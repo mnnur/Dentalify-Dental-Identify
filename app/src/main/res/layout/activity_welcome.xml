@@ -22,7 +22,7 @@
         android:layout_width="300dp"
         android:layout_height="315dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo2"
         app:layout_anchor="@+id/background_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.427"
@@ -115,18 +115,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/logInGuest"
-        style="@style/textBodyM"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/log_guest"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame_8" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
