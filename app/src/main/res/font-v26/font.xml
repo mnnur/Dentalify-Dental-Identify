@@ -3,6 +3,6 @@
 
     <font
         android:fontStyle="normal"
-        android:font="@font/kalam_regular"/>
+        android:font="@font/poppins_regular"/>
 
 </font-family>

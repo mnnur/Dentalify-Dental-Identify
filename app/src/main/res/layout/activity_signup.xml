@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/primary"
         tools:context=".SignupActivity">
 
@@ -40,7 +40,7 @@
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/logo2"
             app:layout_anchor="@+id/background_top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +96,6 @@
                 android:layout_height="wrap_content"
                 android:alpha="0"
                 android:text="@string/name"
-                android:textColor="@color/black"
                 tools:alpha="100" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -126,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:alpha="0"
                 android:text="@string/email"
-                android:textColor="@color/black"
+                android:layout_marginTop="4dp"
                 tools:alpha="100" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -154,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:alpha="0"
                 android:text="@string/password"
-                android:textColor="@color/black"
+                android:layout_marginTop="4dp"
                 tools:alpha="100" />
 
             <com.google.android.material.textfield.TextInputLayout
