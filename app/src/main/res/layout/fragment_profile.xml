@@ -76,7 +76,7 @@
 
     <TextView
         android:id="@+id/textView5"
-        style="@style/textHeaderM"
+        style="@style/textHeaderS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -91,10 +91,10 @@
         style="@style/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="setting"
+        android:text="@string/language"
         android:layout_marginBottom="16dp"
         android:textAlignment="textStart"
-        app:icon="@drawable/ic_settings_24"
+        app:icon="@drawable/ic_language"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,21 +106,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Tema"
+        android:text="@string/night_mode"
         android:textAlignment="textStart"
-        app:icon="@drawable/ic_settings_24"
+        app:icon="@drawable/ic_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/tvAkun"
-        style="@style/textHeaderM"
+        style="@style/textHeaderS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:paddingBottom="8dp"
-        android:text="Akun"
+        android:text="@string/akun"
         app:layout_constraintTop_toBottomOf="@+id/button"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -129,13 +129,11 @@
         style="@style/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LogOut"
+        android:text="@string/logout"
         android:textAlignment="textStart"
         app:icon="@drawable/ic_logout_24"
         app:layout_constraintEnd_toEndOf="@+id/tvAkun"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvAkun"
         app:layout_constraintTop_toBottomOf="@+id/tvAkun" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
