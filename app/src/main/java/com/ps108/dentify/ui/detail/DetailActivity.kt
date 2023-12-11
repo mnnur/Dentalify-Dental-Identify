@@ -1,7 +1,8 @@
-package com.ps108.dentify
+package com.ps108.dentify.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ps108.dentify.R
 
 class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

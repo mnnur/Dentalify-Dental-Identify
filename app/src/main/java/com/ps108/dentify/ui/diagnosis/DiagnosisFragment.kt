@@ -11,8 +11,8 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
-import com.ps108.dentify.CameraActivity
-import com.ps108.dentify.CameraActivity.Companion.CAMERAX_RESULT
+import com.ps108.dentify.ui.camera.CameraActivity
+import com.ps108.dentify.ui.camera.CameraActivity.Companion.CAMERAX_RESULT
 import com.ps108.dentify.databinding.FragmentDiagnosisBinding
 
 class DiagnosisFragment : Fragment() {

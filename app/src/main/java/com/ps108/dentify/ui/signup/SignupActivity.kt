@@ -1,4 +1,4 @@
-package com.ps108.dentify
+package com.ps108.dentify.ui.signup
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -10,6 +10,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.ps108.dentify.databinding.ActivitySignupBinding
+import com.ps108.dentify.ui.login.LoginActivity
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding

@@ -1,4 +1,4 @@
-package com.ps108.dentify
+package com.ps108.dentify.ui.camera
 
 import android.content.Intent
 import android.os.Build

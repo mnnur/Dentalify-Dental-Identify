@@ -10,6 +10,8 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.ps108.dentify.databinding.ActivityWelcomeBinding
+import com.ps108.dentify.ui.login.LoginActivity
+import com.ps108.dentify.ui.signup.SignupActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
@@ -41,15 +43,11 @@ class WelcomeActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
-        binding.btnFbLogin.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
-
         binding.btnGoogleLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
-        binding.btnSignIn.setOnClickListener {
+        binding.btnSignUp.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
         }
     }
@@ -63,7 +61,7 @@ class WelcomeActivity : AppCompatActivity() {
         }.start()
 
         val login = ObjectAnimator.ofFloat(binding.btnLogin, View.ALPHA, 1f).setDuration(100)
-        val signup = ObjectAnimator.ofFloat(binding.btnSignIn, View.ALPHA, 1f).setDuration(100)
+        val signup = ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(100)
         val title = ObjectAnimator.ofFloat(binding.tvWelcome, View.ALPHA, 1f).setDuration(100)
         val desc = ObjectAnimator.ofFloat(binding.tvDeskWelcome, View.ALPHA, 1f).setDuration(100)
 

@@ -1,4 +1,4 @@
-package com.ps108.dentify
+package com.ps108.dentify.ui.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
+import com.ps108.dentify.MainActivity
+import com.ps108.dentify.R
 import com.ps108.dentify.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {

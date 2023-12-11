@@ -1,12 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBoxPreference
+        app:key="pref_dark_follow_system"
+        app:title="Follow System"
+        app:iconSpaceReserved="false"
+        app:summary="Use the system's dark mode setting"
+        app:defaultValue="true"/>
 
-    <ListPreference
-        app:defaultValue="@string/pref_dark_follow_system"
-        app:entries="@array/dark_mode"
-        app:entryValues="@array/dark_mode_value"
-        app:key="@string/pref_key_dark"
-        app:title="@string/pref_dark_title"
-        app:useSimpleSummaryProvider="true" />
+    <CheckBoxPreference
+        app:key="pref_dark_off"
+        app:title="Light Mode"
+        app:iconSpaceReserved="false"
+        app:summary="Always use light mode"/>
+
+    <CheckBoxPreference
+        app:key="pref_dark_on"
+        app:title="Dark Mode"
+        app:iconSpaceReserved="false"
+        app:summary="Always use dark mode"/>
 
 </PreferenceScreen>

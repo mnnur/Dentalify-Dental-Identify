@@ -7,16 +7,19 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.preference.PreferenceManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.ps108.dentify.databinding.ActivityMainBinding
+import com.ps108.dentify.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(setAppTheme())
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -75,6 +79,20 @@ class MainActivity : AppCompatActivity() {
             navView.setupWithNavController(navController)
         }
         supportActionBar?.hide()
+    }
+
+    private fun setAppTheme(): Int {
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val isDarkFollowSystem = sharedPreferences.getBoolean("pref_dark_follow_system", false)
+        val isLightMode = sharedPreferences.getBoolean("pref_dark_off", false)
+        val isDarkMode = sharedPreferences.getBoolean("pref_dark_on", false)
+
+        return when {
+            isDarkFollowSystem -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+            isLightMode -> AppCompatDelegate.MODE_NIGHT_NO
+            isDarkMode -> AppCompatDelegate.MODE_NIGHT_YES
+            else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+        }
     }
 
     companion object {
