@@ -1,0 +1,15 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBoxPreference
+        app:key="pref_indonesia"
+        app:title="Indonesian"
+        app:iconSpaceReserved="false"
+        app:summary="Indonesia (id)"
+        app:defaultValue="true"/>
+
+    <CheckBoxPreference
+        app:key="pref_english"
+        app:title="English"
+        app:iconSpaceReserved="false"
+        app:summary="English (en)"/>
+
+</PreferenceScreen>

@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:paddingBottom="16dp"
-        android:text="Pengaturan"
+        android:text="@string/settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:paddingBottom="8dp"
-        android:text="Option"
+        android:text="@string/option"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frame_8" />

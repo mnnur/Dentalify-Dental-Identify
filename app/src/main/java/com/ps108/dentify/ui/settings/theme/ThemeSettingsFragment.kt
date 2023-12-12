@@ -8,7 +8,7 @@ import androidx.preference.PreferenceFragmentCompat
 
 class ThemeSettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.root_preferences, rootKey)
+        setPreferencesFromResource(R.xml.theme_preferences, rootKey)
 
         val darkModePreferenceFollowSystem = findPreference<CheckBoxPreference>("pref_dark_follow_system")
         val darkModePreferenceOff = findPreference<CheckBoxPreference>("pref_dark_off")

@@ -2,6 +2,7 @@ package com.ps108.dentify.ui.settings
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.ps108.dentify.ui.login.LoginActivity
 import com.ps108.dentify.databinding.FragmentSettingsBinding
-import com.ps108.dentify.ui.settings.theme.ThemeSettingsActivity
 
 
 class SettingsFragment : Fragment() {
@@ -29,8 +29,19 @@ class SettingsFragment : Fragment() {
             binding.tvEmailProfile.text = user.email
         }
 
+        binding.btnLanguage.setOnClickListener{
+            /*
+            val themePreferences = Intent(requireActivity(), SettingsPreferencesActivity::class.java)
+            themePreferences.putExtra(SettingsPreferencesActivity.EXTRA_PREFERENCES_KEY, "LANGUAGE")
+            requireActivity().startActivity(themePreferences)
+            */
+            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+        }
+
         binding.btnTheme.setOnClickListener {
-            startActivity(Intent(requireActivity(), ThemeSettingsActivity::class.java))
+            val themePreferences = Intent(requireActivity(), SettingsPreferencesActivity::class.java)
+            themePreferences.putExtra(SettingsPreferencesActivity.EXTRA_PREFERENCES_KEY, "THEME")
+            requireActivity().startActivity(themePreferences)
         }
 
         binding.btnLogout.setOnClickListener {
