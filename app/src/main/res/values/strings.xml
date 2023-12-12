@@ -90,4 +90,7 @@ Selamat Datang di Dental Identify
     <string name="akun">Akun</string>
     <string name="night_mode">Mode Gelap</string>
     <string name="language">Bahasa</string>
+    <string name="alert_camera">Pastikan pencahayaan cukup dan gambar yang ditangkap terlihat dengan jelas</string>
+    <string name="alert_camera_title">Perhatian</string>
+    <string name="alert_camera_confirm">Konfirmasi</string>
 </resources>

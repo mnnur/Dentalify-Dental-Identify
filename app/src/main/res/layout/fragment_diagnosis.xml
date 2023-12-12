@@ -94,27 +94,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btnbatal"
-            style="@style/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="@string/cancel"
-            app:icon="@drawable/baseline_cancel_24" />
-
-        <Button
             android:id="@+id/btnUpload"
             style="@style/button"
-            android:layout_width="match_parent"
+            android:layout_width="310dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
             android:text="@string/unggah"
-            app:icon="@drawable/ic_unggah" />
+            app:icon="@drawable/ic_upload" />
 
 
     </LinearLayout>

@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import com.ps108.dentify.R
 import com.ps108.dentify.ui.camera.CameraActivity
 import com.ps108.dentify.ui.camera.CameraActivity.Companion.CAMERAX_RESULT
 import com.ps108.dentify.databinding.FragmentDiagnosisBinding
@@ -36,7 +38,7 @@ class DiagnosisFragment : Fragment() {
         binding = FragmentDiagnosisBinding.inflate(inflater,container, false)
 
         binding.btnGallery.setOnClickListener { startGallery() }
-        binding.btnCamera.setOnClickListener { startCameraX() }
+        binding.btnCamera.setOnClickListener { showAlertDialog() }
         binding.btnUpload.setOnClickListener { uploadImage() }
 
         return binding.root
@@ -65,6 +67,21 @@ class DiagnosisFragment : Fragment() {
             currentImageUri = it.data?.getStringExtra(CameraActivity.EXTRA_CAMERAX_IMAGE)?.toUri()
             showImage()
         }
+    }
+
+    private fun showAlertDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(requireActivity())
+
+        alertDialogBuilder.setTitle(getString(R.string.alert_camera_title))
+        alertDialogBuilder.setMessage(getString(R.string.alert_camera))
+
+        alertDialogBuilder.setPositiveButton(getString(R.string.alert_camera_confirm)) { dialog, _ ->
+            dialog.dismiss()
+            startCameraX()
+        }
+
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
     }
 
     private fun uploadImage() {
