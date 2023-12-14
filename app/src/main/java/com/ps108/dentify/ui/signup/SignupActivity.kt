@@ -8,7 +8,11 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Button
+import android.widget.CheckBox
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.ps108.dentify.R
 import com.ps108.dentify.databinding.ActivitySignupBinding
 import com.ps108.dentify.ui.login.LoginActivity
 
@@ -26,9 +30,48 @@ class SignupActivity : AppCompatActivity() {
         }
 
         setupView()
-        //setupAction()
+        setupAction()
         playAnimation()
 
+    }
+
+    private fun setupAction(){
+        binding.cbTos.setOnCheckedChangeListener{ _, isChecked ->
+            if(isChecked){
+                showTos()
+            }
+            else{
+                binding.btnSignUp.isEnabled = false
+            }
+        }
+    }
+
+    private fun showTos() {
+        val dialogBuilder = AlertDialog.Builder(this)
+
+        val view = layoutInflater.inflate(R.layout.popup_tos, null)
+        dialogBuilder.setView(view)
+
+
+        val dialog = dialogBuilder.create()
+        val btnAgree = view.findViewById<Button>(R.id.btn_agree_popup)
+
+        view.findViewById<CheckBox>(R.id.cb_tos_popup).setOnCheckedChangeListener{_, isChecked ->
+            btnAgree.isEnabled = isChecked
+        }
+
+        btnAgree.setOnClickListener {
+            binding.btnSignUp.isEnabled = true
+            dialog.dismiss()
+        }
+
+        view.findViewById<Button>(R.id.btn_disagree_popup).setOnClickListener {
+            binding.btnSignUp.isEnabled = false
+            binding.cbTos.isChecked = false
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     private fun setupView() {
