@@ -19,7 +19,6 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.ps108.dentify.databinding.ActivityMainBinding
-import com.ps108.dentify.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -63,12 +62,20 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val navView: BottomNavigationView = binding.navView
+
+        val navView: BottomNavigationView = binding.bottomNavigation
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main)
         val navController = navHostFragment?.findNavController()
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        binding.fabDiagnosis.setOnClickListener {
+            val currentDestination = navController?.currentDestination?.id
+            if(currentDestination != R.id.navigation_diagnosis){
+                navController?.navigateUp()
+                navController?.navigate(R.id.navigation_diagnosis)
+            }
+        }
+
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_diagnosis, R.id.navigation_settings
@@ -79,6 +86,33 @@ class MainActivity : AppCompatActivity() {
             navView.setupWithNavController(navController)
         }
         supportActionBar?.hide()
+
+        navView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_home -> {
+
+                    val currentDestination = navController?.currentDestination?.id
+                    if(currentDestination != R.id.navigation_home) {
+                        navController?.navigateUp()
+                    }
+                    true
+                }
+                R.id.navigation_settings -> {
+
+                    val currentDestination = navController?.currentDestination?.id
+                    if(currentDestination != R.id.navigation_settings) {
+                        navController?.navigateUp()
+                        navController?.navigate(R.id.navigation_settings)
+                    }
+                    true
+                }
+
+                else -> {
+                    true
+                }
+            }
+        }
+
     }
 
     private fun setAppTheme(): Int {

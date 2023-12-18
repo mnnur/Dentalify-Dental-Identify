@@ -8,8 +8,8 @@
 
     <item
         android:id="@+id/navigation_diagnosis"
-        android:icon="@drawable/baseline_add_24"
-        android:title="@string/title_diagnosis" />
+        android:title=""
+        android:enabled="false"/>
 
     <item
         android:id="@+id/navigation_settings"
