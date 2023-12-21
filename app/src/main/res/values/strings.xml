@@ -85,7 +85,8 @@
     <string name="dark_mode_off">Light mode</string>
     <string name="logout">Logout</string>
     <string name="akun">Account</string>
-    <string name="night_mode">Dark Mode</string>
+    <string name="light_mode">Tema Terang</string>
+    <string name="dark_mode">Tema Gelap</string>
     <string name="language">Language</string>
     <string name="alert_camera">Make sure the lighting is sufficient and the captured image is clear</string>
     <string name="alert_camera_title">Alert</string>
