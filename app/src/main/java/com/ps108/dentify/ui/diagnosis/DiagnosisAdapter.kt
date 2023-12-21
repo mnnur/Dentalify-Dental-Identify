@@ -17,6 +17,7 @@ import com.ps108.dentify.data.Diagnosis
 import com.ps108.dentify.ui.detail.DetailActivity
 import com.ps108.dentify.ui.detail.DetailActivity.Companion.DIAGNOSIS_RESULT
 import com.ps108.dentify.utils.descriptionSelector
+import com.ps108.dentify.utils.titleSelector
 
 class DiagnosisAdapter : ListAdapter<Diagnosis, DiagnosisAdapter.DiagnosisViewHolder>(DIFF_CALLBACK) {
 
@@ -41,7 +42,7 @@ class DiagnosisAdapter : ListAdapter<Diagnosis, DiagnosisAdapter.DiagnosisViewHo
 
         fun bind(diagnosis: Diagnosis) {
             getDiagnosis = diagnosis
-            rvTitle.text = diagnosis.diagnosis
+            rvTitle.text = titleSelector(diagnosis.diagnosis)
             rvDate.text = diagnosis.date
             rvDescription.text = descriptionSelector(diagnosis.diagnosis)
             Glide.with(itemView).load(diagnosis.imageUrl).into(rvImage)
