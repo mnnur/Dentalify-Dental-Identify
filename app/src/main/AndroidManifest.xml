@@ -21,6 +21,9 @@
         android:theme="@style/Theme.DentifyDentalIdentify"
         tools:targetApi="31">
         <activity
+            android:name=".ui.settings.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.settings.SettingsPreferencesActivity"
             android:exported="false" />
         <activity

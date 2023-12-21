@@ -198,6 +198,35 @@
                         android:text="@string/log_in"
                         android:drawableStart="@drawable/ic_pw"/>
             -->
+            <TextView
+                android:id="@+id/passwordTextViewConfirm"
+                style="@style/textBodyS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:alpha="0"
+                android:text="@string/confirm_password"
+                tools:alpha="100" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordEditTextLayoutConfirm"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/ic_pw"
+                tools:alpha="100">
+
+                <com.ps108.dentify.ui.customView.PasswordCustomView
+                    android:id="@+id/passwordEditTextConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <CheckBox
                 android:id="@+id/cb_tos"
                 style="@style/textBodyS"

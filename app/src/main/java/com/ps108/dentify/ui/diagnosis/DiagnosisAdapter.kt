@@ -18,7 +18,7 @@ import com.ps108.dentify.ui.detail.DetailActivity
 import com.ps108.dentify.ui.detail.DetailActivity.Companion.DIAGNOSIS_RESULT
 import com.ps108.dentify.utils.descriptionSelector
 
-class DiagnosisAdapter() : ListAdapter<Diagnosis, DiagnosisAdapter.DiagnosisViewHolder>(DIFF_CALLBACK) {
+class DiagnosisAdapter : ListAdapter<Diagnosis, DiagnosisAdapter.DiagnosisViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiagnosisViewHolder {
         val itemView = LayoutInflater.from(parent.context)

@@ -5,19 +5,29 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.ps108.dentify.MainActivity
 import com.ps108.dentify.R
 import com.ps108.dentify.databinding.ActivitySignupBinding
 import com.ps108.dentify.ui.login.LoginActivity
+import com.ps108.dentify.utils.getCurrentDateTime
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +39,7 @@ class SignupActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
+        auth = Firebase.auth
         setupView()
         setupAction()
         playAnimation()
@@ -43,6 +54,9 @@ class SignupActivity : AppCompatActivity() {
             else{
                 binding.btnSignUp.isEnabled = false
             }
+        }
+        binding.btnSignUp.setOnClickListener {
+            createAccount()
         }
     }
 
@@ -72,6 +86,69 @@ class SignupActivity : AppCompatActivity() {
         }
 
         dialog.show()
+    }
+
+    private fun storeToDb(name : String, email : String, user: FirebaseUser){
+        val db = FirebaseFirestore.getInstance()
+        val userProfile = hashMapOf(
+            "strName" to name,
+            "strEmail" to email,
+            "strImageUrl" to ""
+        )
+        db.collection("profile").add(userProfile)
+            .addOnSuccessListener { documentReference ->
+                Toast.makeText(this, "Berhasil membuat akun", Toast.LENGTH_SHORT).show()
+                Log.d("DB", "DocumentSnapshot added with ID: ${documentReference.id}")
+                updateUI(user)
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, "Gagal membuat akun", Toast.LENGTH_SHORT).show()
+                Log.w("DB", "Error adding document : ${exception.message}")
+            }
+    }
+
+    private fun createAccount() {
+        val name = binding.nameEditText.text.toString()
+        val email = binding.emailEditText.text.toString()
+        val password = binding.passwordEditText.text.toString()
+        val passwordConfirm = binding.passwordEditTextConfirm.text.toString()
+
+        if(password != passwordConfirm){
+            Toast.makeText(
+                baseContext,
+                "Konfirmasi password salah",
+                Toast.LENGTH_SHORT,
+            ).show()
+            return
+        }
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d("ACC", "createUserWithEmail:success")
+                    val user = auth.currentUser
+                    storeToDb(name, email, user!!)
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("ACC", "createUserWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        baseContext,
+                        "Authentication failed.",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+                }
+            }
+
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?) {
+        if (currentUser != null){
+            val mainIntent = Intent(this, MainActivity::class.java)
+            mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(mainIntent)
+            finish()
+        }
     }
 
     private fun setupView() {
@@ -106,6 +183,10 @@ class SignupActivity : AppCompatActivity() {
                 ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(100)
         val passwordEditTextLayout =
                 ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(100)
+        val passwordTextViewConfirm =
+            ObjectAnimator.ofFloat(binding.passwordTextViewConfirm, View.ALPHA, 1f).setDuration(100)
+        val passwordEditTextLayoutConfirm =
+            ObjectAnimator.ofFloat(binding.passwordEditTextLayoutConfirm, View.ALPHA, 1f).setDuration(100)
         val signup = ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(100)
 
 
@@ -118,6 +199,8 @@ class SignupActivity : AppCompatActivity() {
                 emailEditTextLayout,
                 passwordTextView,
                 passwordEditTextLayout,
+                passwordTextViewConfirm,
+                passwordEditTextLayoutConfirm,
                 signup
             )
             startDelay = 100

@@ -72,6 +72,7 @@ Selamat Datang di Dental Identify
     <string name="time">17:00 15 Febuari 2023</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="name">Nama</string>
     <string name="title_search">Cari riwayat</string>
     <string name="description_home">Riwayat pengecekan mulut anda</string>
