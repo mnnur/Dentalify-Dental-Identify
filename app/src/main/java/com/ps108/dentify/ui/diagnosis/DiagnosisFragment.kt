@@ -21,11 +21,16 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
+import com.ps108.dentify.MainActivity
 import com.ps108.dentify.R
+import com.ps108.dentify.data.Diagnosis
 import com.ps108.dentify.databinding.FragmentDiagnosisBinding
 import com.ps108.dentify.ml.ModelDentalify13kelas
 import com.ps108.dentify.ui.camera.CameraActivity
 import com.ps108.dentify.ui.camera.CameraActivity.Companion.CAMERAX_RESULT
+import com.ps108.dentify.ui.detail.DetailActivity
+import com.ps108.dentify.ui.detail.DetailActivity.Companion.DIAGNOSIS_RESULT
+import com.ps108.dentify.ui.home.HomeFragment
 import com.ps108.dentify.utils.getCurrentDateTime
 import com.ps108.dentify.utils.reduceFileImage
 import com.ps108.dentify.utils.uriToFile
@@ -184,6 +189,9 @@ class DiagnosisFragment : Fragment() {
                 Toast.makeText(requireActivity(), "Upload berhasil", Toast.LENGTH_SHORT).show()
                 Log.d("DB", "DocumentSnapshot added with ID: ${documentReference.id}")
                 binding.barDiagnosis.visibility = View.GONE
+
+                val intent = Intent(requireActivity(), MainActivity::class.java)
+                startActivity(intent)
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(requireActivity(), "Upload gagal", Toast.LENGTH_SHORT).show()
@@ -194,15 +202,18 @@ class DiagnosisFragment : Fragment() {
 
     private fun uploadImage() {
         binding.barDiagnosis.visibility = View.VISIBLE
-        currentImageUri?.let { uri ->
-            val imageFile = uriToFile(uri, requireActivity()).reduceFileImage()
-            var image : Bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+        if (currentImageUri != null) {
+            val imageFile = uriToFile(currentImageUri!!, requireActivity()).reduceFileImage()
+            var image: Bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
 
             viewLifecycleOwner.lifecycleScope.launch {
                 classifyImage(image)
                 upload(imageFile)
             }
+        } else {
+            Toast.makeText(requireActivity(), "Pilih foto terlebih dahulu", Toast.LENGTH_SHORT).show()
+            binding.barDiagnosis.visibility = View.GONE
         }
     }
 
@@ -226,6 +237,7 @@ class DiagnosisFragment : Fragment() {
                 .addOnSuccessListener { uri: Uri ->
                     val imageUrl = uri.toString()
                     storeToDb(imageUrl)
+
                 }
         }.addOnFailureListener { exception: Exception? ->
             Toast.makeText(requireActivity(), "Upload gagal", Toast.LENGTH_SHORT).show()
