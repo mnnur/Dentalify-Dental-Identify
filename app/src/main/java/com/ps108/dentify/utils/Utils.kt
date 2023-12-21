@@ -104,3 +104,29 @@ fun rotateImage(source: Bitmap, angle: Float): Bitmap? {
         source, 0, 0, source.width, source.height, matrix, true
     )
 }
+
+fun getCurrentDateTime(format : String): String {
+    val dateFormat = SimpleDateFormat(format, Locale.getDefault())
+    val date = Date()
+    return dateFormat.format(date)
+}
+
+fun descriptionSelector(disease : String) : String{
+    val descriptionText = when (disease) {
+        "Cas" -> "CaS adalah"
+        "CoS" -> "CoS adalah"
+        "Gum" -> "Gum adalah"
+        "MC" -> "MC adalah"
+        "OC" -> "OC adalah"
+        "OLP" -> "OLP adalah"
+        "OT" -> "OT adalah"
+        "caries" -> "caries adalah"
+        "gingivitis" -> "gingivitis adalah"
+        "toothDiscoloration" -> "toothDiscoloration adalah"
+        "ulcers" -> "ulcers adalah"
+        "hypodontia" -> "hypodontia adalah"
+        "calculus" -> "calculus adalah"
+        else -> "Selamat anda sehat"
+    }
+    return descriptionText
+}

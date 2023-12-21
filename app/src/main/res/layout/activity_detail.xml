@@ -42,10 +42,11 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
+            android:id="@+id/tv_detail_date"
             style="@style/textBodyS"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/time"/>
+            android:text="@string/time" />
         <TextView
             android:id="@+id/tv_title"
             style="@style/textHeaderS"

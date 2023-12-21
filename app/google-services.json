@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "827491548058-r6dpl9nl9i3nv027703ok20ujokhqtvv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ps108.dentify",
+            "certificate_hash": "e253d9877ac7c0402848de851ae992f39c1cbcc8"
+          }
+        },
+        {
           "client_id": "827491548058-4aed8bieuevk0vqkp5l1lfft7bbdb0v7.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -95,4 +95,6 @@ Selamat Datang di Dental Identify
     <string name="alert_camera_confirm">Konfirmasi</string>
     <string name="settings">Pengaturan</string>
     <string name="option">Opsi</string>
+    <string name="terms_of_service_privacy_policy"><![CDATA[Terms of service & Privacy policy]]></string>
+    <string name="tos_check_confirm">Saya setuju dengan Terms of Service and Privacy Policy</string>
 </resources>
