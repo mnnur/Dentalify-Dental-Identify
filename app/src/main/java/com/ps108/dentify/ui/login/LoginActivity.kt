@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -24,6 +25,7 @@ import com.google.firebase.auth.auth
 import com.ps108.dentify.MainActivity
 import com.ps108.dentify.R
 import com.ps108.dentify.databinding.ActivityLoginBinding
+import com.ps108.dentify.ui.home.HomeFragment
 
 
 class LoginActivity : AppCompatActivity() {
@@ -47,7 +49,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnGoogleLogin.setOnClickListener {
             signIn()
         }
-
 
 
         setupView()
@@ -94,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
-        if (currentUser != null){
+        if (currentUser != null) {
             val mainIntent = Intent(this, MainActivity::class.java)
             mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(mainIntent)
@@ -138,7 +139,8 @@ class LoginActivity : AppCompatActivity() {
         val passwordTextView =
                 ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(100)
         val passwordEditTextLayout =
-                ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(100)
+                ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f)
+                    .setDuration(100)
         val login = ObjectAnimator.ofFloat(binding.btnLogIn, View.ALPHA, 1f).setDuration(100)
 
         AnimatorSet().apply {
