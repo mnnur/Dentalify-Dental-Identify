@@ -23,14 +23,10 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import com.ps108.dentify.MainActivity
 import com.ps108.dentify.R
-import com.ps108.dentify.data.Diagnosis
 import com.ps108.dentify.databinding.FragmentDiagnosisBinding
 import com.ps108.dentify.ml.ModelDentalify13kelas
 import com.ps108.dentify.ui.camera.CameraActivity
 import com.ps108.dentify.ui.camera.CameraActivity.Companion.CAMERAX_RESULT
-import com.ps108.dentify.ui.detail.DetailActivity
-import com.ps108.dentify.ui.detail.DetailActivity.Companion.DIAGNOSIS_RESULT
-import com.ps108.dentify.ui.home.HomeFragment
 import com.ps108.dentify.utils.getCurrentDateTime
 import com.ps108.dentify.utils.reduceFileImage
 import com.ps108.dentify.utils.uriToFile
@@ -49,6 +45,7 @@ class DiagnosisFragment : Fragment() {
     private val imageSize = 244
     private lateinit var user : FirebaseUser
     private var resultMl = ""
+    private var resultConfidence = 0f
 
     private val launcherGallery = registerForActivityResult(
         ActivityResultContracts.PickVisualMedia()
@@ -167,12 +164,13 @@ class DiagnosisFragment : Fragment() {
                 "hypodontia",
                 "calculus")
 
+            resultConfidence = maxConfidence
             resultMl = classes[maxPos]
 
             model.close()
 
         } catch (e: IOException) {
-            // TODO Handle the exception
+            Toast.makeText(requireActivity(), "Idenitfikasi gagal", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -182,7 +180,8 @@ class DiagnosisFragment : Fragment() {
             "strEmail" to "${user.email}",
             "strDiagnosis" to resultMl,
             "strImageUrl" to imageUrl,
-            "strDate" to getCurrentDateTime("dd/MM/yyyy")
+            "strDate" to getCurrentDateTime("dd/MM/yyyy"),
+            "floatConfidence" to resultConfidence
         )
         db.collection("diagnosis").add(diagnosis)
             .addOnSuccessListener { documentReference ->
@@ -191,6 +190,7 @@ class DiagnosisFragment : Fragment() {
                 binding.barDiagnosis.visibility = View.GONE
 
                 val intent = Intent(requireActivity(), MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
             .addOnFailureListener { exception ->
@@ -230,8 +230,7 @@ class DiagnosisFragment : Fragment() {
         val uploadTask = imageRef.putFile(imageUri)
 
         uploadTask.addOnProgressListener { taskSnapshot: UploadTask.TaskSnapshot ->
-            val progress =
-                100.0 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount
+
         }.addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
             imageRef.downloadUrl
                 .addOnSuccessListener { uri: Uri ->

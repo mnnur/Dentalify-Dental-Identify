@@ -6,15 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.paging.PagedList
-import androidx.paging.LivePagedListBuilder
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.ps108.dentify.databinding.FragmentHomeBinding
 import com.ps108.dentify.data.Diagnosis
+import com.ps108.dentify.databinding.FragmentHomeBinding
 import com.ps108.dentify.ui.diagnosis.DiagnosisAdapter
 
 class HomeFragment : Fragment() {
@@ -53,12 +50,14 @@ class HomeFragment : Fragment() {
                     val diagnosis = documentSnapshot.getString("strDiagnosis")
                     val imageUrl = documentSnapshot.getString("strImageUrl")
                     val date = documentSnapshot.getString("strDate")
+                    val confidence = documentSnapshot.getDouble("floatConfidence")
                     val dataDiagnosis = Diagnosis(
                         documentSnapshot.id,
                         email ?: "",
                         diagnosis ?: "",
                         imageUrl ?: "",
-                        date ?: ""
+                        date ?: "",
+                        confidence?.toFloat() ?: 0f
                     )
 
                     diagnoses.add(dataDiagnosis)
