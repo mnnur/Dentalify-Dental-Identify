@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
+import com.ps108.dentify.MainActivity
 import com.ps108.dentify.R
 import com.ps108.dentify.databinding.FragmentDiagnosisBinding
 import com.ps108.dentify.ml.ModelDentalify13kelas
@@ -44,6 +45,7 @@ class DiagnosisFragment : Fragment() {
     private val imageSize = 244
     private lateinit var user : FirebaseUser
     private var resultMl = ""
+    private var resultConfidence = 0f
 
     private val launcherGallery = registerForActivityResult(
         ActivityResultContracts.PickVisualMedia()
@@ -162,12 +164,13 @@ class DiagnosisFragment : Fragment() {
                 "hypodontia",
                 "calculus")
 
+            resultConfidence = maxConfidence
             resultMl = classes[maxPos]
 
             model.close()
 
         } catch (e: IOException) {
-            // TODO Handle the exception
+            Toast.makeText(requireActivity(), "Idenitfikasi gagal", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -177,13 +180,18 @@ class DiagnosisFragment : Fragment() {
             "strEmail" to "${user.email}",
             "strDiagnosis" to resultMl,
             "strImageUrl" to imageUrl,
-            "strDate" to getCurrentDateTime("dd/MM/yyyy")
+            "strDate" to getCurrentDateTime("dd/MM/yyyy"),
+            "floatConfidence" to resultConfidence
         )
         db.collection("diagnosis").add(diagnosis)
             .addOnSuccessListener { documentReference ->
                 Toast.makeText(requireActivity(), "Upload berhasil", Toast.LENGTH_SHORT).show()
                 Log.d("DB", "DocumentSnapshot added with ID: ${documentReference.id}")
                 binding.barDiagnosis.visibility = View.GONE
+
+                val intent = Intent(requireActivity(), MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(requireActivity(), "Upload gagal", Toast.LENGTH_SHORT).show()
@@ -194,15 +202,18 @@ class DiagnosisFragment : Fragment() {
 
     private fun uploadImage() {
         binding.barDiagnosis.visibility = View.VISIBLE
-        currentImageUri?.let { uri ->
-            val imageFile = uriToFile(uri, requireActivity()).reduceFileImage()
-            var image : Bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+        if (currentImageUri != null) {
+            val imageFile = uriToFile(currentImageUri!!, requireActivity()).reduceFileImage()
+            var image: Bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
 
             viewLifecycleOwner.lifecycleScope.launch {
                 classifyImage(image)
                 upload(imageFile)
             }
+        } else {
+            Toast.makeText(requireActivity(), "Pilih foto terlebih dahulu", Toast.LENGTH_SHORT).show()
+            binding.barDiagnosis.visibility = View.GONE
         }
     }
 
@@ -219,13 +230,13 @@ class DiagnosisFragment : Fragment() {
         val uploadTask = imageRef.putFile(imageUri)
 
         uploadTask.addOnProgressListener { taskSnapshot: UploadTask.TaskSnapshot ->
-            val progress =
-                100.0 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount
+
         }.addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
             imageRef.downloadUrl
                 .addOnSuccessListener { uri: Uri ->
                     val imageUrl = uri.toString()
                     storeToDb(imageUrl)
+
                 }
         }.addOnFailureListener { exception: Exception? ->
             Toast.makeText(requireActivity(), "Upload gagal", Toast.LENGTH_SHORT).show()

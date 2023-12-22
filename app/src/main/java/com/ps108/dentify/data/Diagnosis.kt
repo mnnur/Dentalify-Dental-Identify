@@ -8,5 +8,6 @@ data class Diagnosis(
     val email: String,
     val diagnosis: String,
     val imageUrl: String,
-    val date: String
+    val date: String,
+    val confidence: Float
 ) : Parcelable
