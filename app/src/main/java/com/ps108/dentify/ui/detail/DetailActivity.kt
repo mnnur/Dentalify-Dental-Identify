@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.ps108.dentify.data.Diagnosis
 import com.ps108.dentify.databinding.ActivityDetailBinding
 import com.ps108.dentify.utils.descriptionSelector
+import com.ps108.dentify.utils.titleSelector
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
@@ -24,7 +25,7 @@ class DetailActivity : AppCompatActivity() {
         if(diagnosis != null) {
             val disease = diagnosis.diagnosis
             binding.tvDetailDate.text = diagnosis.date
-            binding.tvTitle.text = disease
+            binding.tvTitle.text = titleSelector(disease)
             binding.tvDetailConfidence.text = String.format("Akurasi %.1f%%", diagnosis.confidence * 100)
             Glide.with(this).load(diagnosis.imageUrl).into(binding.ivImageDetail)
             binding.tvDescription.text = descriptionSelector(disease)
