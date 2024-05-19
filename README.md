@@ -8,6 +8,7 @@ In Indonesia, there are quite a lot of health problems, especially in terms of o
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Training](#training)
 
 ## Installation
 
@@ -21,3 +22,7 @@ Download here: [Dentalify alpha release](https://github.com/mnnur/Dentalify-Dent
 4. Tap upload
 5. Go to home
 6. View the result
+
+## Training
+The code for training the model can be seen here:
+https://colab.research.google.com/drive/1FFZZsy4a4u0mKwni70txD2XMIYZdabYW
